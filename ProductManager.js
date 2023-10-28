@@ -3,10 +3,10 @@ class ProductManager{
         this.products = []
         this.nextId = 1
         this.path = "./products.txt"
-        this.loadProcucts()
+        this.loadProducts()
     }
 
-    loadProcucts(){
+    loadProducts(){
         try {
             const data = fs.readFileSync(this.path, 'utf-8')
             this.products = JSON.parse(data)
@@ -59,14 +59,12 @@ class ProductManager{
             console.log(`Not found code:${id}`)
         } else{
             console.log(this.products[indice])
+            return this.products[indice]
         }
-        
-        return this.products[indice]
     }
 
     getProducts() {
-        console.log("Lista de productos:");
-        this.products.forEach(products => console.log(products));
+        return this.products
     }
 
     deleteProduct(id) {
