@@ -9,7 +9,7 @@ class ProductManager{
     loadProcucts(){
         try {
             const data = fs.readFileSync(this.path, 'utf-8')
-            this.products = JSON-parse(data)
+            this.products = JSON.parse(data)
             if (this.products.length > 0){
                 this.nextId = Math.max(...this.products.map((product) => product.id))
             }
